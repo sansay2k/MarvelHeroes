@@ -78,10 +78,14 @@ class CharInfo extends Component {
 
     const Viev = ({char}) => {
         const {name, description, thumbnail, homepage, wiki, comics} = char;
+        let imgStyle = {'objectfit' : 'cover'};
+        if (thumbnail == 'http://http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg') {
+            imgStyle = {'objectfit' : 'contain'}
+        }
         return(
             <>
                 <div className="char__basics">
-                    <img src={thumbnail} alt={name}/>
+                    <img src={thumbnail} alt={name} style={imgStyle}/>
                     <div>
                         <div className="char__info-name">{name}</div>
                         <div className="char__btns">
@@ -99,13 +103,16 @@ class CharInfo extends Component {
                 </div>
                 <div className="char__comics">Comics:</div>
                 <ul className="char__comics-list">
+                    {comics.length > 0 ? null : 'There is no comics width this character'}
                     {
                     comics.map((item, i) => {
-                        return (
-                            <li key={i} className="char__comics-item">
-                                {item.name}
-                            </li>
-                        )
+                        if (i < 10) {
+                            return(
+                                <li key={i} className="char__comics-item">
+                                    {item.name}
+                                </li>
+                            )
+                        }
                     })
                     }
 

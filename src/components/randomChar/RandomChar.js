@@ -78,11 +78,17 @@ class RandomChar extends Component{
 
 const Viev = ({char}) => {
     const {name, description, thumbnail, homepage, wikis} = char;
+    let imgStyle = {'objectfit' : 'cover'};
+    if (thumbnail == 'http://http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg') {
+        imgStyle = {'objectfit' : 'contain'}
+    }
     
+
+
 
     return (
         <div className="randomchar__block">
-            <img src={thumbnail} alt="Random character" className="randomchar__img"/>
+            <img src={thumbnail} alt="Random character" className="randomchar__img" style={imgStyle}/>
             <div className="randomchar__info">
                 <p className="randomchar__name">{name}</p>
                 <p className="randomchar__descr">
