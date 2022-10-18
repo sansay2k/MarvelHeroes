@@ -1,6 +1,7 @@
 @import './variables';
 
 .button {
+
     min-width: 101px;
     color: #fff;
     text-align: center;
@@ -87,5 +88,8 @@
     }
     &:hover {
         transform: translateY(-5px);
+    }
+    &:disabled {
+        filter:grayscale(.5);
     }
 }
