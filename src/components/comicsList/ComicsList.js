@@ -12,7 +12,7 @@ const ComicsList = () => {
     const [offset, setOffset] = useState(0);
     const [comicsEnded, setComicsEnded] = useState(false);
 
-    const [loading, error, getAllComics] = useMarvelService();
+    const {loading, error, getAllComics} = useMarvelService();
 
     useEffect(() => {
         onRequest(offset, true)
@@ -32,7 +32,7 @@ const ComicsList = () => {
         setComicsList([...comicsList, ...newComicsList]);
         setNewItemLoading(false);
         setOffset(offset + 8);
-        setComicsListEnded(ended);
+        setComicsEnded(ended);
     }
 
 
@@ -40,9 +40,9 @@ const ComicsList = () => {
     function renderItems (arr) {
         const items = arr.map((item, i) => {
             return (
-                <li className='comics__item' key={1}>
+                <li className='comics__item' key={i}>
                     <a href="#">
-                        <img src={item.thubnail} alt={item.title} className='comics__item-img'/>
+                        <img src={item.thumbnail} alt={item.title} className='comics__item-img'/>
                         <div className='comics__item-name'>{item.title}</div>                        
                         <div className='comics__item-price'>{item.price}</div>
                     </a>
@@ -71,7 +71,7 @@ const ComicsList = () => {
 
             <button className='button button__main button__long'
                     disabbled = {newItemLoading}
-                    style = {{'display': comicsListEnded ? 'none' : 'block'}}
+                    style = {{'display': comicsEnded ? 'none' : 'block'}}
                     onClick={() => onRequest(offset)}>
                         <div className='inner'>load more</div>
             </button>
