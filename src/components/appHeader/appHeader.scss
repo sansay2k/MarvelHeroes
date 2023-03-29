@@ -22,6 +22,9 @@
             line-height: 32px;
             li {
                 margin: 0 8px;
+                a {
+                    transition: 0.3s all;
+                }
                 a:hover {
                     color: $main-color;
                 }
