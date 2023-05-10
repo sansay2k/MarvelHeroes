@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { MainPage, ComicsPage, Page404, SingleComicPage } from "../pages";
+import { MainPage, ComicsPage, Page404 } from "../pages";
 import SinglePage from "../pages/SinglePage";
 import SingleCharacterLayout from "../pages/SingleCharacterLayout/SingleCharacterLayout";
 import SingleComicLayout from '../pages/SingleComicLayout/SingleComicLayout';
